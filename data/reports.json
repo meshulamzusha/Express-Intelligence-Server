@@ -1,0 +1,32 @@
+[
+  {
+    "id": "R-001",
+    "date": "2025-12-20T08:30:00Z",
+    "content": "Port observation completed with no unusual incidents.",
+    "agentId": 101
+  },
+  {
+    "id": "R-002",
+    "date": "2025-12-21T14:15:00Z",
+    "content": "Suspicious movement identified in Warehouse No. 4.",
+    "agentId": 102
+  },
+  {
+    "id": "R-003",
+    "date": "2025-12-22T09:00:00Z",
+    "content": "The source meeting proceeded as planned; information was transferred to the archive.",
+    "agentId": 102
+  },
+  {
+    "id": "R-004",
+    "date": "2025-12-22T11:45:00Z",
+    "content": "Security systems check at the main branch is normal.",
+    "agentId": 103
+  },
+  {
+    "id": "R-005",
+    "date": "2025-12-22T13:20:00Z",
+    "content": "Surveillance of the suspicious vehicle was discontinued due to exposure detection.",
+    "agentId": 104
+  }
+]
