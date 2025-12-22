@@ -10,8 +10,6 @@ export async function isUserRegistered(password) {
         if (!user) {
             registered = false
         }
-
-        console.log(registered);
         
         return registered
 
