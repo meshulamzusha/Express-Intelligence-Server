@@ -1,4 +1,4 @@
-import getUsers from '../services/userService.js'
+import { getUsers } from '../services/userService.js';
 
 
 export async function isUserRegistered(password) {
@@ -15,5 +15,13 @@ export async function isUserRegistered(password) {
 
     } catch (error) {
         throw error
+    }
+}
+
+
+export function createUser(username, password) {
+    return {
+        username: username,
+        password: password
     }
 }
