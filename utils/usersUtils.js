@@ -1,12 +1,15 @@
 import { getUsers } from '../services/userService.js';
 
 
-export async function isUserRegistered(password) {
+export async function isUserRegistered(username, password) {
     try {
         let registered = true
         const users = await getUsers();
-        const user = users.find(u => u.password === password);
-
+        
+        const user = users.find(u => {
+            return u.username == username && u.password == password
+        });
+        
         if (!user) {
             registered = false
         }
