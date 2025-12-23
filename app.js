@@ -5,6 +5,8 @@ import usersRouter from './routes/usersRouter.js'
 const app = express();
 const port = 3000;
 
+app.use(express.json())
+
 
 app.use('/health', healthRouter);
 app.use('/users', usersRouter)
