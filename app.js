@@ -1,6 +1,6 @@
 import express from 'express';
-import healthRouter from './routes/healthRouter.js';
-import usersRouter from './routes/usersRouter.js'
+import healthRouter from './src/routes/healthRouter.js';
+import usersRouter from './src/routes/usersRouter.js'
 
 const app = express();
 const port = 3000;
