@@ -3,7 +3,7 @@ import { createUser } from "../utils/usersUtils.js";
 
 export async function getUsers() {
     try {
-        const usersRaw = await getFileContent('./data/users.json')
+        const usersRaw = await getFileContent('./src/data/users.json')
         return JSON.parse(usersRaw);
     } catch (error) {
         throw error;
@@ -22,7 +22,7 @@ export async function addUser(username, password) {
 
         const user = createUser(username, password)
         users.push(user);
-        await saveDataToFile('./data/users.json', JSON.stringify(users, null, 2));
+        await saveDataToFile('./src/data/users.json', JSON.stringify(users, null, 2));
 
         return user
     } catch (error) {
@@ -41,7 +41,7 @@ export async function updatePassword(username, newPassword) {
         }
 
         users[index].password = newPassword;
-        await saveDataToFile('./data/users.json', JSON.stringify(users, null, 2));
+        await saveDataToFile('./src/data/users.json', JSON.stringify(users, null, 2));
 
         return users[index]
 
@@ -61,7 +61,7 @@ export async function deleteUser(username) {
         }
 
         users.splice(index, 1);
-        await saveDataToFile('./data/users.json', JSON.stringify(users, null, 2));
+        await saveDataToFile('./src/data/users.json', JSON.stringify(users, null, 2));
         
     } catch (error) {
         throw error
