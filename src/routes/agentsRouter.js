@@ -1,6 +1,6 @@
 import express from 'express';
-// import { auth } from '../middleware/authMiddleware.js';
-import { getAgents, getAgentById } from '../services/agentService.js';
+import  auth from '../middleware/authMiddleware.js';
+import { getAgents, getAgentById, addAgent } from '../services/agentService.js';
 
 const router = express.Router();
 
@@ -23,6 +23,19 @@ router.get('/:id', async (req, res) => {
 
     } catch (error) {
         res.send(error.message)
+    }
+})
+
+
+router.post('/', auth, async (req, res) => {
+    try {
+        const name = req.body.name;
+        const agent = await addAgent(name)
+
+        res.json(agent);
+
+    } catch (error) {
+        res.send(error.message);
     }
 })
 

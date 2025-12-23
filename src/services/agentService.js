@@ -1,5 +1,5 @@
 import { getFileContent, saveDataToFile } from "../utils/fileUtils.js";
-
+import { createAgent } from "../utils/agentsUtils.js";
 
 export async function getAgents() {
     try {
@@ -21,6 +21,23 @@ export async function getAgentById(id) {
         }
 
         return agent
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+export async function addAgent(name) {
+    try {
+        const agents = await getAgents();
+        const agent = await createAgent(name);
+        console.log(agent);
+        
+        agents.push(agent);
+        await saveDataToFile("./src/data/agents.json", JSON.stringify(agents, null, 2));
+
+        return agent;
 
     } catch (error) {
         throw error;
