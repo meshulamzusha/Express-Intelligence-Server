@@ -29,3 +29,41 @@ export async function addUser(username, password) {
         throw error;
     }
 }
+
+
+export async function updatePassword(username, newPassword) {
+    try {
+        const users = await getUsers();
+        const index = users.findIndex(u => u.username == username);
+        
+        if (index == -1) {
+            throw new Error("User not exist.");
+        }
+
+        users[index].password = newPassword;
+        await saveDataToFile('./data/users.json', JSON.stringify(users, null, 2));
+
+        return users[index]
+
+    } catch (error) {
+        throw error
+    }
+}
+
+
+export async function deleteUser(username) {
+    try {
+        const users = await getUsers();
+        const index = users.findIndex(u => u.username == username);
+        
+        if (index == -1) {
+            throw new Error("User not exist.");
+        }
+
+        users.splice(index, 1);
+        await saveDataToFile('./data/users.json', JSON.stringify(users, null, 2));
+        
+    } catch (error) {
+        throw error
+    }
+}
